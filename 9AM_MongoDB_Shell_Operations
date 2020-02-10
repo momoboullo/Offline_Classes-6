@@ -1,0 +1,99 @@
+RDBMS Database     Mongo DB
+---------------    ---------
+Database		  Database	
+Tables			  Collections
+Rows              Document
+Columns			  Fields	
+
+---------------------------------------------------
+Database Operations (CRUD) -> Local / Cloud
+-------------------------------------------------
+1) Shell Commands (DBA)
+2) Standalone JS Programs (Testing)
+3) Websites (Developer)
+
+
+1) Shell Commands (DBA) (in command prompt)
+-----------------------------------------------------------------
+show dbs -> see list of databases
+use <database_name> -> to switch / create a new database
+show collections -> see list of Tables / collections
+
+
+Database -> info_db
+Table    -> employees
+
+CREATE 
+--------
+db.employees.insertOne({
+	id : 1,
+	name : 'John',
+	age : 40,
+	designation : 'Manager'
+});
+
+db.employees.insertOne({
+	id : 2,
+	name : 'Wilson',
+	age : 45,
+	designation : 'Sr.Manager'
+});
+
+db.employees.insertMany([
+	{
+		id : 3,
+		name : 'Rajan',
+		age : 25,
+		designation : 'Software Engineer'
+	},
+	{
+		id : 4,
+		name : 'Mahesh',
+		age : 32,
+		designation : 'Tech Lead'
+	}
+]);
+
+READ 
+----
+db.employees.find();
+db.employees.find().pretty();
+db.employees.find({id : 4});
+db.employees.find({_id : ObjectId("5e40da61e2c7a383b4659c58")});
+
+UPDATE
+------
+db.employees.updateOne({id : 3} , { $set : {
+	age : 28,
+	designation : 'Sr.Software Engineer'
+}});
+
+db.employees.updateOne({id : 1} , { $set : {
+	age : 48,
+	designation : 'Delivery Manager'
+}});
+
+DELETE
+-------
+db.employees.deleteOne({id: 2});
+
+
+Mongo DB Compass (GUI Env for Mongo DB)
+---------------------------------------
+
+http://127.0.0.1:3000
+
+mongodb://127.0.0.1:27017
+
+db.employees.updateOne({id : 1} , { $set : {
+	first_name : 'NAVEEN',
+	last_name : 'SAGGAM',
+	email : 'naveen.uibrains@gmail.com'
+}});
+
+
+
+
+
+
+
